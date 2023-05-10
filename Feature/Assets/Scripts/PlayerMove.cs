@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float chargeJumpForce;
     [SerializeField] private float chargeJumpSpeed;
     [SerializeField] private float chargeJumpTime;
+    [SerializeField] private float hoverJumpForce;
     private bool isChargingJump;
 
     // Start is called before the first frame update
@@ -50,6 +51,7 @@ public class PlayerMove : MonoBehaviour
         }
         ChargeJump();
         SpeedBoost();
+        Hover();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -96,5 +98,33 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position += transform.forward * Time.deltaTime * speedUp;
         }
+    }
+
+    void Hover()
+    {
+        if(Input.GetKeyDown("l"))
+        {
+            isOnGround = false;
+        }
+
+        if(Input.GetKeyUp("l"))
+        {
+            isOnGround = true;
+        }
+ 
+        if (Input.GetKey(KeyCode.L) & isOnGround == false)
+        {
+            GetComponent<Rigidbody>().drag =12;
+            if (Input.GetKeyDown("l"))
+            {
+                playerRB.velocity = Vector3.up * hoverJumpForce;
+            }
+            
+        }
+        else
+        {
+            GetComponent<Rigidbody>().drag =0;
+        }
+        
     }
 }

@@ -62,6 +62,8 @@
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\Delete3.cs" />
+    <Compile Include="Assets\Scripts\FloodHover.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
