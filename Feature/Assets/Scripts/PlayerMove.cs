@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
             }
             
         }
-        else if(Input.GetKeyUp(KeyCode.J) && chargeJumpTime >= 5)
+        else if(Input.GetKeyUp(KeyCode.J) && chargeJumpTime >= 3)
             {
                 playerRB.velocity = Vector3.up * chargeJumpForce;
                 isChargingJump = false;
